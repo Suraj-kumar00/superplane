@@ -67,7 +67,15 @@ func Test__GetPipeline__Execute(t *testing.T) {
 							"ppl_id": "00000000-0000-0000-0000-000000000000",
 							"wf_id": "11111111-1111-1111-1111-111111111111",
 							"state": "done",
-							"result": "passed"
+							"result": "passed",
+							"result_reason": "test",
+							"branch_name": "main",
+							"commit_sha": "a1b2c3d4e5f6",
+							"yaml_file_name": "semaphore.yml",
+							"working_directory": ".semaphore",
+							"project_id": "22222222-2222-2222-2222-222222222222",
+							"created_at": "2026-01-22T15:32:47Z",
+							"done_at": "2026-01-22T15:32:56Z"
 						}
 					}`)),
 				},

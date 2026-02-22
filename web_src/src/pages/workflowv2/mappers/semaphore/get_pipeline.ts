@@ -64,6 +64,17 @@ export const getPipelineMapper: ComponentBaseMapper = {
     addDetail("Workflow ID", payload.wf_id);
     addDetail("State", payload.state);
     addDetail("Result", payload.result);
+    addDetail("Result Reason", payload.result_reason);
+    addDetail("Branch", payload.branch_name);
+    addDetail("Commit SHA", payload.commit_sha);
+    addDetail("Commit Message", payload.commit_message);
+    addDetail("YAML File", payload.yaml_file_name);
+    addDetail("Working Directory", payload.working_directory);
+    addDetail("Project ID", payload.project_id);
+    addDetail("Created At", formatDate(payload.created_at));
+    addDetail("Done At", formatDate(payload.done_at));
+    addDetail("Running At", formatDate(payload.running_at));
+    addDetail("Error", payload.error_description);
 
     return details;
   },
@@ -116,4 +127,11 @@ function getPipelineEventSections(
       eventId: execution.rootEvent.id,
     },
   ];
+}
+
+function formatDate(value?: string): string | undefined {
+  if (!value) return undefined;
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return undefined;
+  return date.toLocaleString();
 }
